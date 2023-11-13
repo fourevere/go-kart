@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %} 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"></script>
+{% endblock %}
+{% block content %}
+
+
+
+    <div class="d-flex align-items-center justify-content-center" style="height: 120vh;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <!-- 가운데 정렬을 원하는 내용 -->
+                    <div class="card shadow-lg">
+                        <div class="card-body p-5">
+                            <h1 class="fs-4 card-title fw-bold mb-2">상품내역</h1>
+                            <div>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">상품명</th>
+                                        <th scope="col" style='white-space: nowrap'>개수</th>
+                                        <th scope="col">가격</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for name,price,count_quantity in receipts_list%}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{name}}</td>
+                                            <td>{{count_quantity}}</td>
+                                            <td>{{price}}</td>
+                                        </tr>
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="mb-3 text-end">
+                                <label class="mb-2">총액:</label>{{total_price}}
+                                <label class="mb-2 text-muted"></label>
+                            </div>
+                            <div style="padding: 5px 0px 5px 50px ; float:right;">
+                                <a href="{%url 'myreceipt_temp' %}" class="btn btn-primary">목록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    </script>
+{% endblock %}

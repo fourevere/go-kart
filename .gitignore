@@ -1,0 +1,9 @@
+db.sqlite3
+.idea/
+__pycache__
+db.sqlite3
+*/migrations/*
+detect_products/**
+Products.jpg
+Products.txt
+settings.py
